@@ -1,18 +1,15 @@
 import { useState } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
-
+import logo from "../../assets/logo.png"
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import { Alarm, ChevronLeftTwoTone, ChevronRightTwoTone, NoteAdd, Star, Task } from "@mui/icons-material";
+import { Alarm, ChevronLeftTwoTone, ChevronRightTwoTone, NoteAdd, Star, Task, TaskRounded } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-
-
-
 function SidebarNav() {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -43,7 +40,6 @@ function SidebarNav() {
                 style={{ height: "100vh" }}
             >
                 <Menu iconShape="square">
-                    {/* LOGO AND MENU ICON */}
                     <MenuItem
                         onClick={() => setIsCollapsed(!isCollapsed)}
                         icon={isCollapsed ? <ChevronRightTwoTone style={{ fontSize: 35 }} /> : undefined}
@@ -59,9 +55,8 @@ function SidebarNav() {
                                 alignItems="center"
                                 ml="15px"
                             >
-                                <Typography variant="h5" color={colors.grey[100]}>
-                                    TODO BOARD
-                                </Typography> <ChevronLeftTwoTone style={{ fontSize: 35 }} />
+                                <img src={logo} style={{ width: 50 }} />
+
                                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                                     <ChevronLeftTwoTone style={{ fontSize: 35 }} />
                                 </IconButton>
@@ -97,15 +92,25 @@ function SidebarNav() {
                                 icon={<Alarm />}
                                 component={<Link to="/reminders" />}
                             >Reminders</MenuItem>
+
+                        </SubMenu>
+                        <divider />
+                        <SubMenu
+                            prefix="Tasks"
+                            icon={<TaskRounded />}
+                        >
                             <MenuItem
                                 icon={<Task />}
                                 component={<Link to="/todoList" />}
                             >
                                 Todos
                             </MenuItem>
-                        </SubMenu>
-                        <divider />
+                            <MenuItem
+                                icon={<Alarm />}
+                                component={<Link to="/taskGroups" />}
+                            >Task Group</MenuItem>
 
+                        </SubMenu>
 
 
                         <Typography
