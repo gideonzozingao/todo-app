@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
-
+import logo from "../../assets/logo.png"
 import { tokens } from "../../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
@@ -40,7 +40,6 @@ function SidebarNav() {
                 style={{ height: "100vh" }}
             >
                 <Menu iconShape="square">
-                    {/* LOGO AND MENU ICON */}
                     <MenuItem
                         onClick={() => setIsCollapsed(!isCollapsed)}
                         icon={isCollapsed ? <ChevronRightTwoTone style={{ fontSize: 35 }} /> : undefined}
@@ -56,9 +55,8 @@ function SidebarNav() {
                                 alignItems="center"
                                 ml="15px"
                             >
-                                <Typography variant="h5" color={colors.grey[100]}>
-                                    TODO BOARD
-                                </Typography> <ChevronLeftTwoTone style={{ fontSize: 35 }} />
+                                <img src={logo} style={{ width: 50 }} />
+
                                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                                     <ChevronLeftTwoTone style={{ fontSize: 35 }} />
                                 </IconButton>
