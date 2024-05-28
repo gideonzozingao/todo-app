@@ -10,9 +10,6 @@ import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { Alarm, ChevronLeftTwoTone, ChevronRightTwoTone, NoteAdd, Star, Task } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-
-
-
 function SidebarNav() {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
