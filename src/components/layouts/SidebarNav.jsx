@@ -8,7 +8,7 @@ import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import { Alarm, ChevronLeftTwoTone, ChevronRightTwoTone, NoteAdd, Star, Task } from "@mui/icons-material";
+import { Alarm, ChevronLeftTwoTone, ChevronRightTwoTone, NoteAdd, Star, Task, TaskRounded } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 function SidebarNav() {
     const theme = useTheme();
@@ -92,15 +92,25 @@ function SidebarNav() {
                                 icon={<Alarm />}
                                 component={<Link to="/reminders" />}
                             >Reminders</MenuItem>
+
+                        </SubMenu>
+                        <divider />
+                        <SubMenu
+                            prefix="Tasks"
+                            icon={<TaskRounded />}
+                        >
                             <MenuItem
                                 icon={<Task />}
                                 component={<Link to="/todoList" />}
                             >
                                 Todos
                             </MenuItem>
-                        </SubMenu>
-                        <divider />
+                            <MenuItem
+                                icon={<Alarm />}
+                                component={<Link to="/taskGroups" />}
+                            >Task Group</MenuItem>
 
+                        </SubMenu>
 
 
                         <Typography
